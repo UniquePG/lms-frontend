@@ -1,9 +1,13 @@
-import { Link } from 'react-router-dom'
+
+import { Link } from "react-router-dom"
 
 import homeImg from "../assets/home1.png"
 import HomeLayout from '../Layouts/HomeLayout'
 
 const Homepage = () => {
+
+
+
   return (
         <HomeLayout>
 
@@ -16,7 +20,7 @@ const Homepage = () => {
                         </span>
                     </h1>
 
-                    <p className='text-xl text-gray-200'>
+                    <p className='text-xl text-gray-600'>
                         We have a large library of courses tought by highly skilled and qualified faculties at very affordable cost
                     </p>
 

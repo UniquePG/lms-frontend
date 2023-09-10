@@ -108,7 +108,7 @@ const Navbar = () => {
                         </button>
 
                         <button className="btn-secondary w-full  px-4 py-1 font-semibold rounded-md">
-                            <Link to="/login"> Signup </Link>
+                            <Link to="/signup"> Signup </Link>
                         </button>
                     </div>
                 </li>
@@ -150,7 +150,7 @@ const Navbar = () => {
     {
         !isLoggedIn ? (         
                     //! Register button if user is not logged in
-            <Link className="flex items-center relative right-auto" to="/user/signup">
+            <Link className="flex items-center relative right-auto" to="/signup">
                 <button className="bg-primary px-4 py-2 rounded-md text-white font-semibold hover:bg-primary-focus transition-all duration-200">
                     Register/Login
                 </button>
