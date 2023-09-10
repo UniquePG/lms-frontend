@@ -89,9 +89,11 @@ const Navbar = () => {
             <li>
               <Link to="/courses">All Courses</Link>
             </li>
+
             <li>
               <Link to="/contact">Contact Us</Link>
             </li>
+
             <li>
               <Link to="/about">About Us</Link>
             </li>
@@ -99,7 +101,7 @@ const Navbar = () => {
             {
                 !isLoggedIn && (
 
-                <li className="absolute bottom-2 w-[90%] ">
+                <li className="absolute -bottom-10 w-[90%] ">
                     <div className="w-full flex items-center justify-between space-x-1">
                         <button className="btn-primary w-full px-4 py-1 font-semibold rounded-md">
                             <Link to="/login"> Login </Link>
