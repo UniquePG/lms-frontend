@@ -15,16 +15,16 @@ const Footer = () => {
             <div className="order-1 lg:order-2 mb-4 lg:mb-0">
               <ul className="flex space-x-6">
                 <li>
-                  <a href="#" className="text-white hover:text-gray-400 transition duration-300">Home</a>
+                  <a href="/" className="text-white hover:text-gray-400 transition duration-300">Home</a>
                 </li>
                 <li>
-                  <a href="#" className="text-white hover:text-gray-400 transition duration-300">Courses</a>
+                  <a href="/courses" className="text-white hover:text-gray-400 transition duration-300">Courses</a>
                 </li>
                 <li>
-                  <a href="#" className="text-white hover:text-gray-400 transition duration-300">About Us</a>
+                  <a href="/about" className="text-white hover:text-gray-400 transition duration-300">About Us</a>
                 </li>
                 <li>
-                  <a href="#" className="text-white hover:text-gray-400 transition duration-300">Contact Us</a>
+                  <a href="contact" className="text-white hover:text-gray-400 transition duration-300">Contact Us</a>
                 </li>
               </ul>
             </div>

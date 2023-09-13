@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { BsPersonCircle } from "react-icons/bs";
+import { toast } from "react-hot-toast";
+import { BsFillEyeFill, BsFillEyeSlashFill, BsPersonCircle } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-hot-toast"
 
 import HomeLayout from "../Layouts/HomeLayout";
 import { createAccount } from "../Redux/Slices/AuthSlice";
@@ -13,6 +13,16 @@ const Signup = () => {
     const navigate = useNavigate();
 
     const [previewImg, setPreviewImg] = useState("");
+
+    const [showPassword, setShowPassword] = useState(false);
+
+
+    function showPasswordHandler(){
+
+        setShowPassword((prevShowPassword) => !prevShowPassword);
+    }
+
+    
 
     // to handle signup data
     const [signupData, setSignupData] = useState({
@@ -131,18 +141,18 @@ const Signup = () => {
         <div className="flex items-center justify-center h-[90vh]">
 
             <form noValidate onSubmit={createNewAccount} 
-                className="flex flex-col justify-center gap-3 w-96  rounded-lg p-4 text-gray-700 border-2 border-gray-300 shadow-[0_0_7px_black]">
+                className="flex flex-col justify-center gap-3 w-96 mt-20 rounded-lg p-4 text-gray-700 border-2 border-gray-300 shadow-[0_0_7px_black] bg-white">
 
-                <h1 className="text-2xl text-center font-bold  ">Register Your Self</h1>
+                <h1 className="text-3xl text-center font-bold  ">Register Yourself</h1>
 
-                <label htmlFor="image_uploads" className="cursor-pointer">
+                <label htmlFor="image_uploads" className="cursor-pointer flex justify-center items-center border rounded-full border-gray-400 w-24 h-24 mx-auto  hover:bg-gray-100">
                     {
                         previewImg ? (
                             
-                            <img className="w-24 h-24 rounded-full m-auto" src={previewImg} />
+                            <img className="w-24 h-24 rounded-full " src={previewImg} />
 
                         ) : (
-                            <BsPersonCircle className="w-24 h-24 rounded-full m-auto" />
+                            <BsPersonCircle className="w-24 h-24 rounded-full   text-gray-400" />
                         )
                     }
                 </label>
@@ -162,7 +172,7 @@ const Signup = () => {
                         name="fullname"
                         id="fullname"
                         placeholder="Enter your full name"
-                        className="bg-transparent px-2 py-1 border"
+                        className="bg-gray-100 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         onChange={handleInputData}
                         value={signupData.fullname}
                         />
@@ -175,27 +185,39 @@ const Signup = () => {
                         name="email"
                         id="email"
                         placeholder="Enter your email address"
-                        className="bg-transparent px-2 py-1 border"
+                        className="bg-gray-100 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         onChange={handleInputData}
                         value={signupData.email}
                         />
                 </div>
 
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1 relative">
                     <label htmlFor="password" className="font-semibold">Password:</label>
-                    <input type="password"
+                    <input type={ showPassword ? `text` : `password`  }
                         required
                         name="password"
                         id="password"
                         placeholder="Enter your password"
-                        className="bg-transparent px-2 py-1 border"
+                        className="bg-gray-100 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         onChange={handleInputData}
                         value={signupData.password}
                         />
+
+                        <span className={`absolute top-10 right-3  cursor-pointer ${ showPassword ? 'hidden' : 'block' }`} 
+                            onClick={showPasswordHandler} >
+                                 
+                            <BsFillEyeSlashFill size={22} className="text-gray-500" id="close" /> 
+                        </span> 
+
+                        <span className={`absolute top-10 right-3  cursor-pointer ${ showPassword ? 'block' : 'hidden' }`}
+                                onClick={showPasswordHandler} >
+
+                            <BsFillEyeFill size={22} className="text-gray-500" id="open" /> 
+                        </span>
                 </div>
 
 
-                    <button className="w-full bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-200 rounded-sm py-2 font-semibold my-2 text-lg cursor-pointer "
+                    <button className="bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-600 hover:to-yellow-500 text-white font-semibold py-2 rounded-lg text-lg my-2 transition-all duration-300"
                         type="submit"
                     >
                         Create Account
