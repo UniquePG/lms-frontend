@@ -12,6 +12,7 @@ const initialState = {
 
 // now we make reducer using thunk
 //* thunk -> It is also like a action but isme phle automatically promise resolve hoga tabhi ye action apne data ke sath dispatch hogaa
+//* /auth/signup -> it is just a name of our thunk(unique key name for thunk)
 export const createAccount = createAsyncThunk("/auth/signup", async (data)=> {
 
     try {
@@ -92,7 +93,6 @@ export const logout = createAsyncThunk("/auth/logout", async ()=> {
 })
 
 
-
 // make auth slice
 const authSlice = createSlice({
     name:'auth', // name of the reducer
@@ -123,6 +123,10 @@ const authSlice = createSlice({
     }
 
 })
+
+
+
+
 
 // export const {} = authSlice.actions;
 export default authSlice.reducer;
