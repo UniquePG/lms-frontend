@@ -70,7 +70,8 @@ useEffect(() => {
 
 
   return (
-    <div className={`navbar ${navbarBackground} fixed top-0 w-full transition-all duration-300 ease-in-out z-10  bg-base-100 justify-between`}>
+    // <div className="">
+    <div className={`navbar ${navbarBackground} fixed top-0 w-full transition-all duration-300 ease-in-out z-10  bg-base-100 justify-between m`}>
 
     <div className=" navbar-start drawer  ">
         <input className="drawer-toggle" id="my-drawer" type="checkbox" />
@@ -218,6 +219,7 @@ useEffect(() => {
       </div>
       
     </div>
+    // </div>
   );
 };
 

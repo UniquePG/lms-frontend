@@ -9,12 +9,12 @@ const CourseCard = ({ data }) => {
   return (
     <div onClick={()=> navigate("/course/description")} 
       className="bg-gray-500 rounded-tl-2xl rounded-tr-2xl">
-    <div className="card w-[26rem] glass m-auto ">
-      <figure>
+    <div className="card w-[26rem] glass m-auto h-fit">
+      <figure className="">
         <img
           src={data?.thumbnail?.secure_url}
           alt="course thumbnail"
-          className="group-hover:scale-[1,2] transition-all duration-150"
+          className="group-hover:scale-[1,2] transition-all duration-150 min-h-[26rem]"
         />
       </figure>
       <div className="card-body">

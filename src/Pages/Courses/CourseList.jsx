@@ -18,7 +18,7 @@ const CourseList = () => {
 
     useEffect(()=>{
         loadCourses();  // load all courses on the first render
-    }, [])
+    },[])
 
   return (
    <HomeLayout>
