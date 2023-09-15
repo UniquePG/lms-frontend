@@ -7,7 +7,8 @@ const CourseCard = ({ data }) => {
 
 
   return (
-    <div onClick={()=> navigate("/course/description")} 
+        // {state: {...data }}  send this data to the desc. page that is accessible by useLocation hook
+    <div onClick={()=> navigate("/course/description", {state: {...data }}  )} 
       className="bg-gray-500 rounded-tl-2xl rounded-tr-2xl">
     <div className="card w-[26rem] glass m-auto h-fit">
       <figure className="">
