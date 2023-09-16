@@ -5,8 +5,8 @@ import axiosInstance from "../../Helpers/axiosInstance";
 
 const initialState = {
     isLoggedIn: localStorage.getItem('isLoggedIn') || false,
-    role: localStorage.getItem("role") || '',
-    data: localStorage.getItem("data") || {},
+    role: localStorage.getItem("role") || "",
+    data: JSON.parse(localStorage.getItem("data")) || {},
 }
 
 
@@ -105,18 +105,18 @@ const authSlice = createSlice({
             // set the details in local storage(browser side)
             localStorage.setItem("data", JSON.stringify(action?.payload?.user));
             localStorage.setItem("isLoggedIn", true);
-            localStorage.setItem("role", JSON.stringify(action?.payload?.role));
+            localStorage.setItem("role", action?.payload?.user?.role);
 
             //now update the state 
-            state.isLoggedIn =true;
+            state.isLoggedIn = true;
             state.data = action?.payload?.user;
-            state.role = action?.payload?.role;
+            state.role = action?.payload?.user?.role;
         })
             .addCase(logout.fulfilled, (state)=>{
                 // after logout clear our local storage
                 localStorage.clear();
                 // now reset all states
-                state.isLoggedIn=false;
+                state.isLoggedIn = false;
                 state.data = {};
                 state.role = "";
             })

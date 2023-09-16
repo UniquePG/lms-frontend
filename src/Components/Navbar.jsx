@@ -4,7 +4,6 @@ import { FiMenu } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
-import profileImg from "../assets/default.png";
 import { logout } from "../Redux/Slices/AuthSlice";
 
 const Navbar = () => {
@@ -13,10 +12,15 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     // for checking user is logged in
-    const isLoggedIn = useSelector( (state)=> state?.auth?.isLoggedIn);
+    // const isLoggedIn = useSelector( (state)=> state?.auth?.isLoggedIn);
+    const {isLoggedIn, role, data} = useSelector( (state)=> state?.auth);
 
     // for displaying options acc to the role
-    const role = useSelector( (state)=> state?.auth?.role)
+    // const role = useSelector( (state)=> state?.auth?.role)
+
+    // const user = useSelector( (state)=> state?.auth?.data)
+    console.log("navbar", role, "\n", data);
+    console.log("navbar login", typeof(isLoggedIn), isLoggedIn);
 
 
     function changeWidth() {
@@ -71,7 +75,7 @@ useEffect(() => {
 
   return (
     // <div className="">
-    <div className={`navbar ${navbarBackground} fixed top-0 w-full transition-all duration-300 ease-in-out z-10  bg-base-100 justify-between m`}>
+    <div className={`navbar ${navbarBackground} fixed top-0 w-full transition-all duration-300 ease-in-out z-10  bg-base-100 justify-between`}>
 
     <div className=" navbar-start drawer  ">
         <input className="drawer-toggle" id="my-drawer" type="checkbox" />
@@ -92,7 +96,7 @@ useEffect(() => {
         {/* bg-base-200 in class of my-drawer */}
           <label htmlFor="my-drawer" className="bg-base-200"></label>
 
-          <ul className="menu p-4 w-48 sm:w-80 bg-base-200 text-base-content relative">
+          <ul className="menu p-4 w-48 sm:w-80 bg-base-200 text-base-content relative h-[90vh]">
             <li className="w-fit absolute right-2 z-50">
               <button className="" onClick={hideDrawer}>
                 <AiFillCloseCircle size={24} />
@@ -186,8 +190,9 @@ useEffect(() => {
         (
             <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src={profileImg} />
+              <div className="w-12 rounded-full">
+                <img src={data?.avatar?.secure_url} />
+                {/* <img src={} /> */}
               </div>
             </label>
   
@@ -201,7 +206,7 @@ useEffect(() => {
                 </Link>
               </li>
               <li>
-                <a>Settings</a>
+                <Link to="/settings">Settings</Link>
               </li>
               <li>
                 <Link onClick={handleLogout}>Logout</Link>
@@ -219,7 +224,6 @@ useEffect(() => {
       </div>
       
     </div>
-    // </div>
   );
 };
 

@@ -2,8 +2,10 @@ import './App.css'
 
 import { Route, Routes } from 'react-router-dom'
 
+import RequireAuth from './Components/auth/RequireAuth'
 import CourseCard from './Components/CourseCard'
 import AboutUs from './Pages/AboutUs'
+import CreateCourse from './Pages/Admin/CreateCourse'
 import ContactUs from './Pages/ContactUs'
 import CourseDescription from './Pages/Courses/CourseDescription'
 import CourseList from './Pages/Courses/CourseList'
@@ -28,6 +30,13 @@ function App() {
       <Route path='/courses' element={<CourseList />} />
       <Route path='/card' element={<CourseCard />} /> 
       <Route path='/course/description' element={<CourseDescription />} />
+
+      {/* Admin routes  */}
+      {/* first all routed go the RequireAuth component and verify role */}
+      <Route element={<RequireAuth  allowedRoles={["ADMIN"]} /> } >
+        <Route path='/course/create' element={<CreateCourse />} />
+  
+      </Route>
 
 
     {/* if you not have access of a page */}
