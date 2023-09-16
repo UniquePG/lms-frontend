@@ -14,6 +14,7 @@ import Homepage from './Pages/Homepage'
 import Login from './Pages/Login'
 import NotFound from './Pages/NotFound'
 import Signup from './Pages/Signup'
+import Profile from './Pages/User/Profile'
 
 function App() {
 
@@ -38,6 +39,9 @@ function App() {
   
       </Route>
 
+      <Route element={<RequireAuth  allowedRoles={["ADMIN", "USER"]} /> } >
+        <Route path='/user/profile' element={<Profile /> } />
+      </Route>
 
     {/* if you not have access of a page */}
       <Route path='/denied' element={<Denied />} /> 
