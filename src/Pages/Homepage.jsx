@@ -1,4 +1,5 @@
 
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 import homeImg from "../assets/home1.png"
@@ -6,7 +7,8 @@ import HomeLayout from '../Layouts/HomeLayout'
 
 const Homepage = () => {
 
-
+    const data = useSelector((state) => state?.auth?.data)
+    console.log(data);
 
   return (
         <HomeLayout>

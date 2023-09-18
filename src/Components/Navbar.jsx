@@ -75,7 +75,7 @@ useEffect(() => {
 
   return (
     // <div className="">
-    <div className={`navbar ${navbarBackground} fixed top-0 w-full transition-all duration-300 ease-in-out z-10  bg-base-100 justify-between`}>
+    <div className={`navbar ${navbarBackground} fixed top-0 items-center transition-all duration-300 ease-in-out z-10  bg-base-100 justify-between `}>
 
     <div className=" navbar-start drawer  ">
         <input className="drawer-toggle" id="my-drawer" type="checkbox" />
@@ -97,7 +97,7 @@ useEffect(() => {
           <label htmlFor="my-drawer" className="bg-base-200"></label>
 
           <ul className="menu p-4 w-48 sm:w-80 bg-base-200 text-base-content relative h-[90vh]">
-            <li className="w-fit absolute right-2 z-50">
+            <li className="w-fit absolute right-2 z-50"> 
               <button className="" onClick={hideDrawer}>
                 <AiFillCloseCircle size={24} />
               </button>
@@ -200,6 +200,12 @@ useEffect(() => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
+              <div className=" pl-3">
+                <p className="text-yellow-500 text-lg font-medium flex flex-row gap-x-4">Hey! 
+                  <span className="text-black text-xl capitalize font-semibold">  {data.fullname}</span>
+              </p>
+                {/* <p className="text-xl mr-3">{data.fullname}</p> */}
+              </div>
               <li>
                 <Link className="justify-between" to="/user/profile">
                   Profile
