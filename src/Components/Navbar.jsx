@@ -20,7 +20,7 @@ const Navbar = () => {
 
     // const user = useSelector( (state)=> state?.auth?.data)
     console.log("navbar", role, "\n", data);
-    console.log("navbar login", typeof(isLoggedIn), isLoggedIn);
+    // console.log("navbar login", typeof(isLoggedIn), isLoggedIn);
 
 
     function changeWidth() {

@@ -6,8 +6,8 @@ function RequireAuth( { allowedRoles }) {
     const { isLoggedIn, role } = useSelector((state)=> state.auth);
     const location = useLocation();
 
-    console.log("require auth",typeof(isLoggedIn),isLoggedIn, role);
-    console.log("require AllowedRoles", typeof allowedRoles[0], allowedRoles[0]);
+    // console.log("require auth",typeof(isLoggedIn),isLoggedIn, role);
+    // console.log("require AllowedRoles", typeof allowedRoles[0], allowedRoles[0]);
 
 
     return isLoggedIn && allowedRoles.find((myrole)=> myrole === role) ? (

@@ -1,11 +1,33 @@
-import { useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Link, useNavigate } from "react-router-dom"
 
 import HomeLayout from "../../Layouts/HomeLayout"
+import { getUserDetails } from "../../Redux/Slices/AuthSlice"
+import { unsubscibeCourseBundle } from "../../Redux/Slices/RazorpaySlice"
 
 const Profile = () => {
 
     const userData = useSelector((state)=> state?.auth?.data)
+    console.log("profile page userdata", userData);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    async function onUnsubscribe(){
+
+      await dispatch(unsubscibeCourseBundle());
+      await dispatch(getUserDetails());
+
+      navigate("/user/profile")
+
+      // toast.success("Unsubscribe successfully!")
+
+    }
+
+    useEffect(()=>{
+      dispatch(getUserDetails());
+    },[])
 
   return (
     <HomeLayout>
@@ -56,7 +78,7 @@ const Profile = () => {
           </div>
 
           {userData?.subscription?.status === "active" && (
-            <button
+            <button onClick={()=> onUnsubscribe()}
               className="w-full bg-red-600 hover:bg-red-500 transition-all ease-in-out duration-300 rounded-sm py-2 font-semibold cursor-pointer text-center"
             >
               Cancel Subscription

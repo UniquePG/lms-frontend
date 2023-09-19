@@ -27,11 +27,11 @@ const Homepage = () => {
                     </p>
 
                     <div className='space-x-6'>
-                        <Link className='/courses'>
+                        <Link to='/courses'>
                             <button className='bg-yellow-500 px-5 py-3 rounded-md font-semibold text-white cursor-pointer hover:bg-yellow-600 transition-all duration-300 ease-in-out' > Explore Courses </button>
                         </Link>
 
-                        <Link className='/contact'>
+                        <Link to='/contact'>
                             <button className='bg-yellow-500 px-5 py-3 rounded-md font-semibold text-white cursor-pointer hover:bg-yellow-600 transition-all duration-300 ease-in-out' > Contact Us </button>
                         </Link>
 

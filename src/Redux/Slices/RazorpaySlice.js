@@ -58,11 +58,8 @@ export const unsubscibeCourseBundle = createAsyncThunk("/razorpay/unsubscribe", 
 
         toast.promise(res, {
             loading: "Unsubscibing the course bundle",
-            success: (data)=>{
-                return data?.data?.message
-            },
-
-            error: "failed to unsubscibe"
+            success: "Your bundle unsubscribed successfully",
+            error: "failed to unsubscribe"
         })
 
         return (await res).data

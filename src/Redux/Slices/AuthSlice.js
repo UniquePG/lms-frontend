@@ -170,11 +170,11 @@ const authSlice = createSlice({
             })
 
             .addCase(getUserDetails.fulfilled, (state, action)=>{
-                console.log("get user details: ",action);
+                console.log("Authslice user details: ",action);
                 // set the details in local storage(browser side)
                 localStorage.setItem("data", JSON.stringify(action?.payload?.user));
                 localStorage.setItem("isLoggedIn", true);
-                // localStorage.setItem("role", action?.payload?.user?.role);
+                localStorage.setItem("role", action?.payload?.user?.role);
     
                 //now update the state 
                 state.isLoggedIn = true;
