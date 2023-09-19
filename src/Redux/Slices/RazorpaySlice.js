@@ -36,16 +36,18 @@ export const purchaseCourseBundle = createAsyncThunk("/puchaseCourse", async ()=
 
 // create a thunk for verify payment
 export const verifyUserPayment = createAsyncThunk("/razorpay/verify", async (data)=>{ 
+    console.log(data.razorpay_subscription_id);
     try {
         const res = await axiosInstance.post("/payments/verify", {
             razorpay_payment_id: data.razorpay_payment_id,
-            razorypay_subscription_id: data.razorypay_subscription_id,
+            razorpay_subscription_id: data.razorpay_subscription_id,
             razorpay_signature: data.razorpay_signature
         });
 
-        return res.data;
+        console.log("verify...", res);
+        return res?.data;
     } catch (error) {
-        toast.error(error?.response?.data?.message)
+        toast.error("Payment is not verified")
     }
 })
 
@@ -108,6 +110,7 @@ const razorpaySlice = createSlice({
             .addCase(verifyUserPayment.fulfilled, (state, action)=> {
                 // set payment is verified 
                 toast.success(action?.payload?.message)     // show toast
+                // toast.success("Payment is verified")     // show toast
                 state.isPaymentVerified = action?.payload?.success;
             })
             .addCase(verifyUserPayment.rejected, (state, action)=> {
