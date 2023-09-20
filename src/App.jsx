@@ -40,9 +40,9 @@ function App() {
       {/* first all routed go the RequireAuth component and verify role */}
       <Route element={<RequireAuth  allowedRoles={["ADMIN"]} /> } >
         <Route path='/course/create' element={<CreateCourse />} />
-  
       </Route>
 
+        {/* Routes for user can acces after login */}
       <Route element={<RequireAuth  allowedRoles={["ADMIN", "USER"]} /> } >
         <Route path='/user/profile' element={<Profile /> } />
         <Route path='/user/editprofile' element={<EditProfile /> } />

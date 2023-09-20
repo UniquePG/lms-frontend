@@ -7,7 +7,7 @@ const Footer = () => {
 
     return (
         <footer className="bg-blue-900 text-white py-6 relative left-0 bottom-0 px-3">
-          <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
+          <div className="container mx-auto max-w-[90vw] flex flex-col lg:flex-row justify-between items-center">
             <div className="order-2 lg:order-1 mb-4 lg:mb-0">
               <h2 className="text-2xl font-semibold mb-2">StudyPulse</h2>
               <p className="text-gray-400">Unlocking Knowledge, Empowering Minds</p>
@@ -53,7 +53,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="text-center text-gray-400 mt-4">
+          <div className="text-left m-auto text-gray-400 mt-4 max-w-[90vw]">
             &copy; {year} Your Learning Management System. All rights reserved.
           </div>
         </footer>

@@ -74,10 +74,10 @@ useEffect(() => {
 
 
   return (
-    // <div className="">
+  // <div className="">
     <div className={`navbar ${navbarBackground} fixed top-0 items-center transition-all duration-300 ease-in-out z-10  bg-base-100 justify-between `}>
 
-    <div className=" navbar-start drawer  ">
+    <div className=" navbar-start drawer  ml-6">
         <input className="drawer-toggle" id="my-drawer" type="checkbox" />
 
         <div className="drawer-content ">
@@ -174,7 +174,7 @@ useEffect(() => {
       </div>
 
 
-      <div className=" navbar-end ">
+      <div className=" navbar-end mr-10">
 
     {
         !isLoggedIn ? (         
@@ -228,8 +228,8 @@ useEffect(() => {
 
 
       </div>
-      
     </div>
+  // </div>
   );
 };
 

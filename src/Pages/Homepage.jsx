@@ -14,6 +14,7 @@ const Homepage = () => {
         <HomeLayout>
 
             <div className='pt-10 text-black flex items-center justify-center gap-10 mx-16 h-[90vh] '>
+
                 <div className='w-1/2 space-y-6'>
                     <h1 className='text-5xl font-semibold '>
                         Find out best 
@@ -40,10 +41,9 @@ const Homepage = () => {
                 </div>
 
 
-                <div className='w-1/2 flex items-center justify-center '>
+                <div className='w-2/5 flex items-center justify-center '>
                     <img src={homeImg} alt='homeimg' />
                 </div>
-
             </div>
 
         </HomeLayout>

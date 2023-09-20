@@ -32,7 +32,7 @@ const Profile = () => {
   return (
     <HomeLayout>
               <div className="min-h-[90vh] flex items-center justify-center bg-gray-400">
-        <div className="my-10 flex flex-col gap-4 rounded-lg p-4 text-white w-80 shadow-[0_0_10px_black]">
+        <div className="my-10 flex flex-col gap-4 rounded-lg p-4 text-white w-96 shadow-[0_0_10px_black]">
           <img
             className="w-40 m-auto rounded-full border border-black"
             src={userData?.avatar?.secure_url}
@@ -43,7 +43,7 @@ const Profile = () => {
             {userData.fullname}
           </h3>
 
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-2 m-auto">
             <p>Email :</p>
             <p>{userData?.email}</p>
 
@@ -56,6 +56,14 @@ const Profile = () => {
                 ? "Active"
                 : "Inactive"}
             </p>
+
+            { userData?.subscription?.status === "active" && 
+              <> 
+                  <p>Validity :</p>
+                  <p> 1 Year</p>
+              </>
+            }
+
           </div>
 
           {/* button to change the password */}

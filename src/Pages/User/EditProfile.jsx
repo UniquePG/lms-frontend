@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { BsPersonCircle } from 'react-icons/bs';
@@ -13,12 +13,18 @@ const EditProfile = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const details = useSelector((state)=> state?.auth?.data)
+
     const [userData, setUserData] = useState({
-        fullname: "",
-        previewImage: "",
+        fullname: details?.fullname,
+        previewImage:details?.avatar?.secure_url,
         avatar: undefined,
         userId: useSelector((state)=> state?.auth?.data?._id)
     });
+
+    useEffect(()=> {
+      dispatch(getUserDetails())
+    },[])
 
     // function for handle image
     function handleImage(e){

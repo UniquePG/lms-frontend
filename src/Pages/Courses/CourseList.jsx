@@ -22,12 +22,13 @@ const CourseList = () => {
 
   return (
    <HomeLayout>
+  <div className=" m-auto flex items-center justify-center">
       <div className="min-h-[90vh] pt-32 pl-12 flex flex-col text-black gap-10">
         <h1 className="font-bold text-2xl text-center">
           Explore the courses made by <span className="font-bold text-yellow-500"> Industry Experts</span>
         </h1>
 
-        <div className="mb-10 flex flex-wrap gap-14">
+        <div className="mb-10 flex flex-wrap gap-14 ">
             {
               courseData?.map( (course)=> {
                 return <CourseCard key={course._id} data={course} />
@@ -36,6 +37,7 @@ const CourseList = () => {
         </div>
 
       </div>
+  </div>
    </HomeLayout>
   )
 }
