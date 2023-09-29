@@ -51,9 +51,11 @@ const CourseDescription = () => {
                 {
                     role === "ADMIN" || data?.subscription?.status === "active" ? 
                     ( 
-                        <button className="bg-yellow-500 text-xl font-bold rounded-md px-5 py-3 w-full hover:bg-yellow-600 ease-in-out duration-300 transition-all text-white"> 
+                        <button onClick={()=> navigate("/course/display-lectures", {state: {...state}} )} 
+                            className="bg-yellow-500 text-xl font-bold rounded-md px-5 py-3 w-full hover:bg-yellow-600 ease-in-out duration-300 transition-all text-white"> 
                             Watch Lectures
                         </button>
+                    
                     ) : (
                         <button onClick={()=> navigate("/checkout")} 
                             className="bg-yellow-500 text-xl font-bold rounded-md px-5 py-3 w-full hover:bg-yellow-600 ease-in-out duration-300 transition-all text-white">

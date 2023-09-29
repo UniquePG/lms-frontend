@@ -9,6 +9,7 @@ import CreateCourse from './Pages/Admin/CreateCourse'
 import ContactUs from './Pages/ContactUs'
 import CourseDescription from './Pages/Courses/CourseDescription'
 import CourseList from './Pages/Courses/CourseList'
+import Displaylectures from './Pages/Dashboard/Displaylectures'
 import Denied from './Pages/Denied'
 import Homepage from './Pages/Homepage'
 import Login from './Pages/Login'
@@ -49,6 +50,7 @@ function App() {
         <Route path='/checkout' element={<Checkout /> } />
         <Route path='/checkout/success' element={<CheckoutSuccess /> } />
         <Route path='/checkout/fail' element={<CheckoutFail /> } />
+        <Route path='/course/display-lectures' element={<Displaylectures /> } />
       </Route>
 
     {/* if you not have access of a page */}

@@ -5,7 +5,7 @@ import Navbar from "../Components/Navbar";
 const HomeLayout = ({ children }) => {
 
   return (
-    <div className="min-h-[90vh] bg-base-200">
+    <div className="min-h-[90vh] bg-gray-500">
       <div className="shadow-md">
             {/* Make a drawer (header/sidebar/navbar) using daisy ui */}
         <Navbar />
