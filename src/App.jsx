@@ -9,6 +9,7 @@ import CreateCourse from './Pages/Admin/CreateCourse'
 import ContactUs from './Pages/ContactUs'
 import CourseDescription from './Pages/Courses/CourseDescription'
 import CourseList from './Pages/Courses/CourseList'
+import AddLectures from './Pages/Dashboard/AddLectures'
 import Displaylectures from './Pages/Dashboard/Displaylectures'
 import Denied from './Pages/Denied'
 import Homepage from './Pages/Homepage'
@@ -41,6 +42,7 @@ function App() {
       {/* first all routed go the RequireAuth component and verify role */}
       <Route element={<RequireAuth  allowedRoles={["ADMIN"]} /> } >
         <Route path='/course/create' element={<CreateCourse />} />
+        <Route path='/course/addlecture' element={<AddLectures />} />
       </Route>
 
         {/* Routes for user can acces after login */}

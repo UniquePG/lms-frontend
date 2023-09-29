@@ -112,10 +112,18 @@ const Displaylectures = () => {
 
 
             </div>) : 
-            (
+            (   <>
                 <div className="text-3xl font-bold text-yellow-500">
                     No lectures found...
                 </div>
+
+                {role === "ADMIN" && (
+                        <button onClick={()=> navigate("/course/addlecture", {state: {...state}})}  
+                            className="btn-primary px-2 py-1 rounded-md font-semibold text-lg">
+                            Add new lecture
+                        </button>
+                    )}
+                </>
             ) }
         </div>
     </HomeLayout>
