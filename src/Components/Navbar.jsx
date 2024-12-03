@@ -51,15 +51,18 @@ const Navbar = () => {
 
     // make sticky navbar
 const [navbarBackground, setNavbarBackground] = useState("transparent");
+const [navbarColor, setNavbarColor] = useState("text-black");
 
 useEffect(() => {
   // Add a scroll event listener to change the navbar background color on scroll
   const handleScroll = () => {
     const scrollY = window.scrollY;
     if (scrollY > 100) {
-      setNavbarBackground("bg-primary"); // Change to your desired background color
+      setNavbarBackground("bg-[#3498db]"); // Change to your desired background color
+      setNavbarColor("text-white")
     } else {
-      setNavbarBackground("transparent");
+      setNavbarBackground("bg-[#ffffff]");
+      setNavbarColor("text-black")
     }
   };
 
@@ -75,7 +78,7 @@ useEffect(() => {
 
   return (
   // <div className="">
-    <div className={`navbar ${navbarBackground} fixed top-0 items-center transition-all duration-300 ease-in-out z-10  bg-base-100 justify-between `}>
+    <div className={`navbar ${navbarBackground} fixed top-0 items-center transition-all duration-300 ease-in-out z-10  bg-base-100 justify-between ${navbarColor} shadow-[0_0_10px_black]`}>
 
     <div className=" navbar-start drawer  ml-6">
         <input className="drawer-toggle" id="my-drawer" type="checkbox" />
@@ -85,7 +88,7 @@ useEffect(() => {
             <FiMenu
               onClick={changeWidth}
               size={"34px"}
-              className="font-bold m-4 text-black"
+              className={`font-bold m-4 ${navbarColor}`}
             />
           </label>
 

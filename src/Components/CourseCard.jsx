@@ -9,13 +9,13 @@ const CourseCard = ({ data }) => {
   return (
         // {state: {...data }}  send this data to the desc. page that is accessible by useLocation hook
     <div onClick={()=> navigate("/course/description", {state: {...data }}  )} 
-      className="bg-gray-500 rounded-tl-2xl rounded-tr-2xl">
-    <div className="card w-[26rem] glass m-auto h-fit">
+      className="bg-transparent rounded-tl-2xl rounded-tr-2xl">
+    <div className="card w-[26rem] glass m-auto h-fit bg-[#f5f6fa] max-h-[43rem]">
       <figure className="">
         <img
           src={data?.thumbnail?.secure_url}
           alt="course thumbnail"
-          className="group-hover:scale-[1,2] transition-all duration-150 min-h-[26rem]"
+          className="group-hover:scale-[1,2] transition-all duration-150 min-h-[23rem] h-[25rem] w-full"
         />
       </figure>
       <div className="card-body">
@@ -40,7 +40,7 @@ const CourseCard = ({ data }) => {
 
 
         <div className="card-actions justify-end flex flex-row ">
-          <button className="btn btn-primary">See Details</button>
+          <button className="btn text-white bg-[#487eb0] ">See Details</button>
         </div>
       </div>
     </div>
